@@ -1,0 +1,37 @@
+#!/bin/bash
+
+FOLDER="$HOME/fotos_camara_lic"
+mkdir -p "$FOLDER"
+
+echo "📸 Capturando fotos cada 15 segundos en: $FOLDER"
+echo "⛔ Presiona Ctrl+C para detener."
+
+while true; do
+    TIMESTAMP=$(date +"%Y%m%d-%H%M%S")
+    FILENAME="photo-${TIMESTAMP}.jpg"
+    FULLPATH="$FOLDER/$FILENAME"
+
+    echo "→ Capturando imagen y descargando como $FILENAME ..."
+
+    # Captura y descarga con keep, pero con opción de espera más larga
+    gphoto2 --capture-image-and-download --keep --filename "$FULLPATH" > /dev/null 2>&1 &
+    PID=$!
+
+    # Esperar un tiempo máximo para que termine (por seguridad)
+    wait $PID
+
+    # Verifica si se descargó el archivo
+    if [[ -f "$FULLPATH" ]]; then
+        FILESIZE=$(stat -c%s "$FULLPATH")
+        if [[ $FILESIZE -lt 5000 ]]; then
+            echo "⚠️ Archivo demasiado pequeño — posible descarga incompleta. Eliminando $FILENAME"
+            rm -f "$FULLPATH"
+        else
+            echo "✅ Guardado: $FILENAME"
+        fi
+    else
+        echo "❌ No se descargó archivo."
+    fi
+
+    sleep 5
+done
