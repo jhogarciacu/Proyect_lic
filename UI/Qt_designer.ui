@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>791</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="palette">
+   <palette>
+    <active>
+     <colorrole role="Button">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>49</red>
+        <green>54</green>
+        <blue>59</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="BrightText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>0</red>
+        <green>0</green>
+        <blue>213</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>49</red>
+        <green>54</green>
+        <blue>59</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>49</red>
+        <green>54</green>
+        <blue>59</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </active>
+    <inactive>
+     <colorrole role="Button">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>49</red>
+        <green>54</green>
+        <blue>59</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="BrightText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>0</red>
+        <green>0</green>
+        <blue>213</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>49</red>
+        <green>54</green>
+        <blue>59</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>49</red>
+        <green>54</green>
+        <blue>59</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </inactive>
+    <disabled>
+     <colorrole role="Button">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>49</red>
+        <green>54</green>
+        <blue>59</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="BrightText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>0</red>
+        <green>0</green>
+        <blue>213</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>49</red>
+        <green>54</green>
+        <blue>59</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>49</red>
+        <green>54</green>
+        <blue>59</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </disabled>
+   </palette>
+  </property>
+  <property name="font">
+   <font>
+    <family>Rockwell</family>
+    <pointsize>10</pointsize>
+    <bold>true</bold>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 1. FONDO DE LA VENTANA: Gris metálico oscuro */
+QMainWindow {
+    background-color: #31363b;
+}
+
+/* 2. CABECERA: El degradado azul profundo con borde neón */
+QFrame#frame_title { 
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #1a2a44, stop:1 #0d1522);
+    border: 1px solid #000000;
+    border-bottom: 3px solid #00c3ff; /* El azul neón de la imagen */
+}
+
+/* Título de la cabecera */
+QLabel#label_titulo_principal {
+    color: #ffffff;
+    font-size: 20pt;
+    font-weight: bold;
+    font-family: &quot;Arial Black&quot;, Gadget, sans-serif;
+    letter-spacing: 2px;
+}
+
+/* 3. LOS CUADROS (GROUPBOX): Gris acero con borde doble */
+QGroupBox {
+    background-color: #eff0f1; /* Fondo gris claro interno */
+    border: 2px solid #76797c;
+    border-radius: 4px;
+    margin-top: 1.5em; /* Espacio para el título */
+    font-weight: bold;
+    color: #31363b;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 3px 0 3px;
+}
+
+/* 4. EL FRAME INTERNO (Donde va el texto &quot;Ángulo de giro&quot;) */
+/* En tu imagen, este cuadro tiene un fondo gris oscuro y bordes redondeados */
+QGroupBox QFrame {
+    background-color: #bdc3c7; /* Gris plateado */
+    border: 1px solid #76797c;
+    border-radius: 2px;
+}
+
+/* 5. LABELS INTERNOS (Ángulo de giro, etc) */
+QGroupBox QLabel {
+    color: #232629;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+}
+
+/* 6. BOTONES: El acabado metálico con relieve */
+QPushButton {
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #fcfcfc, stop:1 #bdc3c7);
+    border: 1px solid #76797c;
+    border-radius: 3px;
+    color: #232629;
+    padding: 5px 15px;
+    min-height: 25px;
+}
+
+QPushButton:hover {
+    background-color: #dbe0e2;
+}
+
+QPushButton:pressed {
+    background-color: #95a5a6;
+    padding-left: 6px;
+    padding-top: 6px;
+}
+
+/* Botones Especiales: INICIAR y DETENER */
+QPushButton#btn_iniciar {
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #5dbd5d, stop:1 #2d6b2d);
+    color: white;
+}
+
+QPushButton#btn_detener {
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #e74c3c, stop:1 #962d22);
+    color: white;
+}
+
+/* 7. LA TABLA: Fondo blanco, líneas grises */
+QTableWidget {
+    background-color: #ffffff;
+    alternate-background-color: #f7f7f7;
+    gridline-color: #bdc3c7;
+    border: 1px solid #76797c;
+    color: #232629;
+}
+
+QHeaderView::section {
+    background-color: #d1d5d8;
+    padding: 2px;
+    border: 1px solid #76797c;
+    font-weight: bold;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout" stretch="1,2,0">
+      <item>
+       <widget class="QFrame" name="frame_title">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>55</height>
+         </size>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Shape::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Shadow::Raised</enum>
+        </property>
+        <widget class="QLineEdit" name="lineEdit_2">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>5</y>
+           <width>751</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Rockwell</family>
+           <pointsize>20</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>CONTROL DE MEDICIÓN DE BOTELLAS</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QGroupBox" name="groupBox_3">
+          <property name="title">
+           <string>GroupBox</string>
+          </property>
+          <widget class="QLabel" name="label">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>80</y>
+             <width>111</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Rockwell</family>
+             <pointsize>11</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Ángulo de giro: </string>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="lineEdit">
+           <property name="geometry">
+            <rect>
+             <x>140</x>
+             <y>80</y>
+             <width>91</width>
+             <height>26</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="pushButton">
+           <property name="geometry">
+            <rect>
+             <x>240</x>
+             <y>75</y>
+             <width>131</width>
+             <height>37</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>MOVER MOTOR</string>
+           </property>
+          </widget>
+          <widget class="QFrame" name="frame">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>10</y>
+             <width>381</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Shape::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Shadow::Raised</enum>
+           </property>
+           <widget class="QLabel" name="label_2">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>6</y>
+              <width>361</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Rockwell</family>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Control de Giro</string>
+            </property>
+           </widget>
+          </widget>
+          <widget class="Line" name="line">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>100</y>
+             <width>118</width>
+             <height>3</height>
+            </rect>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Orientation::Horizontal</enum>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox">
+          <property name="title">
+           <string>GroupBox</string>
+          </property>
+          <widget class="QFrame" name="frame_2">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>10</y>
+             <width>381</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Shape::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Shadow::Raised</enum>
+           </property>
+           <widget class="QLabel" name="label_3">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>361</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>Rockwell</family>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Captura Fotográfia</string>
+            </property>
+           </widget>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBox_2">
+        <property name="title">
+         <string>GroupBox</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_2">
+         <item row="0" column="1">
+          <widget class="QFrame" name="frame_3">
+           <property name="frameShape">
+            <enum>QFrame::Shape::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Shadow::Raised</enum>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QPushButton" name="pushButton_2">
+           <property name="text">
+            <string>DETENER</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QPushButton" name="pushButton_3">
+           <property name="text">
+            <string>INICIAR SECUENCIA</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QPushButton" name="pushButton_4">
+           <property name="text">
+            <string>CONFIGURACIóN</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QTableWidget" name="tableWidget">
+           <column>
+            <property name="text">
+             <string>#</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Ángulo</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Acción</string>
+            </property>
+           </column>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>791</width>
+     <height>33</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
