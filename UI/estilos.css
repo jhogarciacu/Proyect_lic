@@ -1,0 +1,171 @@
+/* 1. CONFIGURACIÓN GLOBAL DE FUENTE */
+/* Aplicamos una fuente Sans-Serif moderna a toda la ventana */
+QMainWindow {
+    background-color: #1b2029;
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* 2. TÍTULO DE LA CABECERA (Estilo condensado y limpio) */
+QLabel#label_title {
+    color: #ffffff !important;
+   font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif; /* Semibold da ese aspecto profesional */
+    font-size: 26px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px; /* Ajuste sutil para parecerse a la imagen */
+    /* Forzamos que no tenga fondo para ver el degradado del frame */
+    background-color: rgba(0, 0, 0, 0) !important; 
+    background: transparent !important;
+    border: none;
+}
+
+/* BORDE REDONDEADO PARA LAS IMÁGENES (VISORES) */
+QLabel#image_title_cam, 
+QLabel#image_title_giro {
+    border: 1px solid #3a4454;
+    border-radius: 8px; /* Esquinas suaves para las fotos */
+    background-color: #000000;
+}
+
+/* 3. TÍTULOS DE LOS PANELES (GROUPBOX) */
+QGroupBox {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, 
+        stop:0 #2d3644, 
+        stop:1 #1e242d);
+    border: 1px solid #3a4454;
+    border-radius: 4px;
+    margin-top: 20px;
+    font-family: "Segoe UI", sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    color: #00d4ff; 
+}
+
+
+/* 5. LABELS GENERALES (Para "Ángulo de giro", etc.) */
+QLabel {
+    color: #ffffff;
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-size: 13px;
+    background: transparent;
+}
+
+/* 6. BOTONES GENERALES (UNIFICADOS) */
+QPushButton {
+    /* Degradado base para botones secundarios o generales */
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #4e5968, stop:1 #353d49);
+    color: white;
+    border: 1px solid #1a1e24;
+    border-radius: 6px;
+    padding: 6px; /* Un poco más de aire interno */
+    
+    /* FUENTE UNIFICADA: Más gruesa para resaltar la acción */
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700; /* Peso grueso para profesionalismo */
+    text-transform: uppercase; /* Mayúsculas para un look más técnico */
+    letter-spacing: 0px;
+}
+
+QPushButton:hover {
+    background-color: #5a6675;
+}
+
+/* BOTONES DE ACCIÓN (AZUL INDUSTRIAL) */
+/* Agrupamos todos por ID para que compartan el mismo estilo exacto */
+QPushButton#btn_girar_motor, 
+QPushButton#btn_calibrar, 
+QPushButton#btn_medidas, 
+QPushButton#btn_secuencia, 
+QPushButton#btn_reiniciar{
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #2980b9, stop:1 #1c5982);
+    border: 1px solid #154360;
+}
+
+QPushButton#btn_girar_motor:hover, 
+QPushButton#btn_calibrar:hover, 
+QPushButton#btn_medidas:hover, 
+QPushButton#btn_secuencia:hover, 
+QPushButton#btn_reiniciar:hover,
+QPushButton#btn_capture:hover {
+    background-color: #3498db; /* Un azul más brillante al pasar el mouse */
+}
+
+/* EFECTO AL HACER CLIC (Para que se hunda) */
+QPushButton#btn_girar_motor:pressed, 
+QPushButton#btn_calibrar:pressed, 
+QPushButton#btn_medidas:pressed, 
+QPushButton#btn_secuencia:pressed, 
+QPushButton#btn_reiniciar:pressed {
+    background-color: #1a3a5e;
+    padding-top: 2px; /* Efecto de hundimiento */
+    padding-left: 2px;
+}
+
+
+/* --- ESTILO PARA LOS MARCOS DE TÍTULOS (FRAME_GIRO Y FRAME_CONFIG) --- */
+QFrame#frame_giro, 
+QFrame#frame_config,
+QFrame#frame_title {
+    /* Un azul marino oscuro que combina con el fondo pero da relieve */
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, 
+        stop:0 #162a41, 
+        stop:1 #0d1e33);
+    border: 1px solid #3a4454;
+    border-radius: 5px;
+    /* Línea inferior neón sutil para separar del contenido */
+    border-bottom: 2px solid #00d4ff;
+}
+
+/* --- ESTILO PARA LOS TEXTOS (LABEL_GIRO Y LABEL_CONFIG) --- */
+QLabel#label_giro, 
+QLabel#label_config,
+QLabel#label_capture,
+QLabel#label_display{
+    /* Volvemos al blanco brillante para que sea legible sobre el azul */
+    color: #ffffff !important;
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 550;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: transparent;
+    padding: 2px;
+}
+
+/* --- AJUSTE OPCIONAL PARA EL FONDO DEL BOX --- */
+/* Esto hará que el contenedor del grupo se vea más profundo */
+QGroupBox {
+    background-color: #161b22;
+    border: 1px solid #21262d;
+    margin-top: 1ex;
+}
+
+/* --- boton capture */
+/* ESTADO NORMAL */
+QPushButton {
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #2980b9, stop:1 #1c5982);
+    border: 1px solid #154360;
+    color: white;
+    border-radius: 6px;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 6px;
+}
+
+/* ESTADO AL PASAR EL MOUSE (HOVER) */
+QPushButton:hover {
+    /* Un azul más brillante y un borde cian neón */
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #3498db, stop:1 #2980b9);
+    border: 1px solid #00d4ff;
+}
+
+/* ESTADO AL HACER CLIC (PRESSED) */
+QPushButton:pressed {
+    /* Color más oscuro y efecto de hundimiento */
+    background-color: #1a3a5e;
+    padding-top: 10px;
+    padding-left: 2px;
+}
