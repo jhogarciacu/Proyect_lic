@@ -1,0 +1,4 @@
+###Instalacion Qt designer
+
+pip install pyside6
+pyside6-designer

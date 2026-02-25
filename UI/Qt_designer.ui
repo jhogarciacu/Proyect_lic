@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>791</width>
-    <height>600</height>
+    <width>770</width>
+    <height>628</height>
    </rect>
   </property>
   <property name="palette">
@@ -16,9 +16,9 @@
      <colorrole role="Button">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>49</red>
-        <green>54</green>
-        <blue>59</blue>
+        <red>27</red>
+        <green>32</green>
+        <blue>41</blue>
        </color>
       </brush>
      </colorrole>
@@ -34,18 +34,18 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>49</red>
-        <green>54</green>
-        <blue>59</blue>
+        <red>27</red>
+        <green>32</green>
+        <blue>41</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>49</red>
-        <green>54</green>
-        <blue>59</blue>
+        <red>27</red>
+        <green>32</green>
+        <blue>41</blue>
        </color>
       </brush>
      </colorrole>
@@ -54,9 +54,9 @@
      <colorrole role="Button">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>49</red>
-        <green>54</green>
-        <blue>59</blue>
+        <red>27</red>
+        <green>32</green>
+        <blue>41</blue>
        </color>
       </brush>
      </colorrole>
@@ -72,18 +72,18 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>49</red>
-        <green>54</green>
-        <blue>59</blue>
+        <red>27</red>
+        <green>32</green>
+        <blue>41</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>49</red>
-        <green>54</green>
-        <blue>59</blue>
+        <red>27</red>
+        <green>32</green>
+        <blue>41</blue>
        </color>
       </brush>
      </colorrole>
@@ -92,9 +92,9 @@
      <colorrole role="Button">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>49</red>
-        <green>54</green>
-        <blue>59</blue>
+        <red>27</red>
+        <green>32</green>
+        <blue>41</blue>
        </color>
       </brush>
      </colorrole>
@@ -110,18 +110,18 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>49</red>
-        <green>54</green>
-        <blue>59</blue>
+        <red>27</red>
+        <green>32</green>
+        <blue>41</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>49</red>
-        <green>54</green>
-        <blue>59</blue>
+        <red>27</red>
+        <green>32</green>
+        <blue>41</blue>
        </color>
       </brush>
      </colorrole>
@@ -130,7 +130,7 @@
   </property>
   <property name="font">
    <font>
-    <family>Rockwell</family>
+    <family>Segoe UI</family>
     <pointsize>10</pointsize>
     <bold>true</bold>
    </font>
@@ -139,110 +139,153 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">/* 1. FONDO DE LA VENTANA: Gris metálico oscuro */
+   <string notr="true">/* 1. CONFIGURACIÓN GLOBAL DE FUENTE */
+/* Aplicamos una fuente Sans-Serif moderna a toda la ventana */
 QMainWindow {
-    background-color: #31363b;
+    background-color: #1b2029;
+    font-family: &quot;Segoe UI&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;
 }
 
-/* 2. CABECERA: El degradado azul profundo con borde neón */
-QFrame#frame_title { 
-    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #1a2a44, stop:1 #0d1522);
-    border: 1px solid #000000;
-    border-bottom: 3px solid #00c3ff; /* El azul neón de la imagen */
-}
-
-/* Título de la cabecera */
-QLabel#label_titulo_principal {
-    color: #ffffff;
-    font-size: 20pt;
-    font-weight: bold;
-    font-family: &quot;Arial Black&quot;, Gadget, sans-serif;
-    letter-spacing: 2px;
-}
-
-/* 3. LOS CUADROS (GROUPBOX): Gris acero con borde doble */
-QGroupBox {
-    background-color: #eff0f1; /* Fondo gris claro interno */
-    border: 2px solid #76797c;
-    border-radius: 4px;
-    margin-top: 1.5em; /* Espacio para el título */
-    font-weight: bold;
-    color: #31363b;
-}
-
-QGroupBox::title {
-    subcontrol-origin: margin;
-    left: 10px;
-    padding: 0 3px 0 3px;
-}
-
-/* 4. EL FRAME INTERNO (Donde va el texto &quot;Ángulo de giro&quot;) */
-/* En tu imagen, este cuadro tiene un fondo gris oscuro y bordes redondeados */
-QGroupBox QFrame {
-    background-color: #bdc3c7; /* Gris plateado */
-    border: 1px solid #76797c;
-    border-radius: 2px;
-}
-
-/* 5. LABELS INTERNOS (Ángulo de giro, etc) */
-QGroupBox QLabel {
-    color: #232629;
-    font-weight: bold;
-    background: transparent;
+/* 2. TÍTULO DE LA CABECERA (Estilo condensado y limpio) */
+QLabel#label_title {
+    color: #ffffff !important;
+   font-family: &quot;Segoe UI&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif; /* Semibold da ese aspecto profesional */
+    font-size: 26px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px; /* Ajuste sutil para parecerse a la imagen */
+    /* Forzamos que no tenga fondo para ver el degradado del frame */
+    background-color: rgba(0, 0, 0, 0) !important; 
+    background: transparent !important;
     border: none;
 }
 
-/* 6. BOTONES: El acabado metálico con relieve */
+/* BORDE REDONDEADO PARA LAS IMÁGENES (VISORES) */
+QLabel#image_title_cam, 
+QLabel#image_title_giro {
+    border: 1px solid #3a4454;
+    border-radius: 8px; /* Esquinas suaves para las fotos */
+    background-color: #000000;
+}
+
+/* 3. TÍTULOS DE LOS PANELES (GROUPBOX) */
+QGroupBox {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, 
+        stop:0 #2d3644, 
+        stop:1 #1e242d);
+    border: 1px solid #3a4454;
+    border-radius: 4px;
+    margin-top: 20px;
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    color: #00d4ff; 
+}
+
+
+/* 5. LABELS GENERALES (Para &quot;Ángulo de giro&quot;, etc.) */
+QLabel {
+    color: #ffffff;
+    font-family: &quot;Segoe UI&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;
+    font-size: 13px;
+    background: transparent;
+}
+
+/* 6. BOTONES GENERALES (UNIFICADOS) */
 QPushButton {
-    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #fcfcfc, stop:1 #bdc3c7);
-    border: 1px solid #76797c;
-    border-radius: 3px;
-    color: #232629;
-    padding: 5px 15px;
-    min-height: 25px;
+    /* Degradado base para botones secundarios o generales */
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #4e5968, stop:1 #353d49);
+    color: white;
+    border: 1px solid #1a1e24;
+    border-radius: 6px;
+    padding: 6px; /* Un poco más de aire interno */
+    
+    /* FUENTE UNIFICADA: Más gruesa para resaltar la acción */
+    font-family: &quot;Segoe UI&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700; /* Peso grueso para profesionalismo */
+    text-transform: uppercase; /* Mayúsculas para un look más técnico */
+    letter-spacing: 0px;
 }
 
 QPushButton:hover {
-    background-color: #dbe0e2;
+    background-color: #5a6675;
 }
 
-QPushButton:pressed {
-    background-color: #95a5a6;
-    padding-left: 6px;
-    padding-top: 6px;
+/* BOTONES DE ACCIÓN (AZUL INDUSTRIAL) */
+/* Agrupamos todos por ID para que compartan el mismo estilo exacto */
+QPushButton#btn_girar_motor, 
+QPushButton#btn_calibrar, 
+QPushButton#btn_medidas, 
+QPushButton#btn_secuencia, 
+QPushButton#btn_reiniciar{
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #2980b9, stop:1 #1c5982);
+    border: 1px solid #154360;
 }
 
-/* Botones Especiales: INICIAR y DETENER */
-QPushButton#btn_iniciar {
-    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #5dbd5d, stop:1 #2d6b2d);
-    color: white;
+QPushButton#btn_girar_motor:hover, 
+QPushButton#btn_calibrar:hover, 
+QPushButton#btn_medidas:hover, 
+QPushButton#btn_secuencia:hover, 
+QPushButton#btn_reiniciar:hover,
+QPushButton#btn_capture:hover {
+    background-color: #3498db; /* Un azul más brillante al pasar el mouse */
 }
 
-QPushButton#btn_detener {
-    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #e74c3c, stop:1 #962d22);
-    color: white;
+/* EFECTO AL HACER CLIC (Para que se hunda) */
+QPushButton#btn_girar_motor:pressed, 
+QPushButton#btn_calibrar:pressed, 
+QPushButton#btn_medidas:pressed, 
+QPushButton#btn_secuencia:pressed, 
+QPushButton#btn_reiniciar:pressed {
+    background-color: #1a3a5e;
+    padding-top: 2px; /* Efecto de hundimiento */
+    padding-left: 2px;
 }
 
-/* 7. LA TABLA: Fondo blanco, líneas grises */
-QTableWidget {
-    background-color: #ffffff;
-    alternate-background-color: #f7f7f7;
-    gridline-color: #bdc3c7;
-    border: 1px solid #76797c;
-    color: #232629;
+
+/* --- ESTILO PARA LOS MARCOS DE TÍTULOS (FRAME_GIRO Y FRAME_CONFIG) --- */
+QFrame#frame_giro, 
+QFrame#frame_config,
+QFrame#frame_title {
+    /* Un azul marino oscuro que combina con el fondo pero da relieve */
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, 
+        stop:0 #162a41, 
+        stop:1 #0d1e33);
+    border: 1px solid #3a4454;
+    border-radius: 5px;
+    /* Línea inferior neón sutil para separar del contenido */
+    border-bottom: 2px solid #00d4ff;
 }
 
-QHeaderView::section {
-    background-color: #d1d5d8;
+/* --- ESTILO PARA LOS TEXTOS (LABEL_GIRO Y LABEL_CONFIG) --- */
+QLabel#label_giro, 
+QLabel#label_config,
+QLabel#label_capture,
+QLabel#label_display{
+    /* Volvemos al blanco brillante para que sea legible sobre el azul */
+    color: #ffffff !important;
+    font-family: &quot;Segoe UI&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 550;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: transparent;
     padding: 2px;
-    border: 1px solid #76797c;
-    font-weight: bold;
+}
+
+/* --- AJUSTE OPCIONAL PARA EL FONDO DEL BOX --- */
+/* Esto hará que el contenedor del grupo se vea más profundo */
+QGroupBox {
+    background-color: #161b22;
+    border: 1px solid #21262d;
+    margin-top: 1ex;
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <layout class="QVBoxLayout" name="verticalLayout" stretch="1,2,0">
+     <layout class="QVBoxLayout" name="verticalLayout" stretch="1,2">
       <item>
        <widget class="QFrame" name="frame_title">
         <property name="maximumSize">
@@ -257,23 +300,277 @@ QHeaderView::section {
         <property name="frameShadow">
          <enum>QFrame::Shadow::Raised</enum>
         </property>
-        <widget class="QLineEdit" name="lineEdit_2">
+        <widget class="QLabel" name="image_title_giro">
          <property name="geometry">
           <rect>
-           <x>10</x>
-           <y>5</y>
-           <width>751</width>
+           <x>18</x>
+           <y>10</y>
+           <width>41</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap>../image construction/Borde_2.jpeg</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QLabel" name="image_title_cam">
+         <property name="geometry">
+          <rect>
+           <x>700</x>
+           <y>10</y>
+           <width>41</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap>../image construction/bordes_1.jpeg</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="Line" name="line_title">
+         <property name="geometry">
+          <rect>
+           <x>130</x>
+           <y>40</y>
+           <width>511</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_title">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>0</y>
+           <width>621</width>
            <height>51</height>
           </rect>
          </property>
+         <property name="palette">
+          <palette>
+           <active>
+            <colorrole role="WindowText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>255</green>
+               <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Button">
+             <brush brushstyle="SolidPattern">
+              <color alpha="0">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Text">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>255</green>
+               <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ButtonText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>255</green>
+               <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Base">
+             <brush brushstyle="SolidPattern">
+              <color alpha="0">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Window">
+             <brush brushstyle="SolidPattern">
+              <color alpha="0">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="128">
+               <red>255</red>
+               <green>255</green>
+               <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+           </active>
+           <inactive>
+            <colorrole role="WindowText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>255</green>
+               <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Button">
+             <brush brushstyle="SolidPattern">
+              <color alpha="0">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Text">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>255</green>
+               <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ButtonText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>255</green>
+               <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Base">
+             <brush brushstyle="SolidPattern">
+              <color alpha="0">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Window">
+             <brush brushstyle="SolidPattern">
+              <color alpha="0">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="128">
+               <red>255</red>
+               <green>255</green>
+               <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+           </inactive>
+           <disabled>
+            <colorrole role="WindowText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>255</green>
+               <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Button">
+             <brush brushstyle="SolidPattern">
+              <color alpha="0">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Text">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>255</green>
+               <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="ButtonText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="255">
+               <red>255</red>
+               <green>255</green>
+               <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Base">
+             <brush brushstyle="SolidPattern">
+              <color alpha="0">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="Window">
+             <brush brushstyle="SolidPattern">
+              <color alpha="0">
+               <red>0</red>
+               <green>0</green>
+               <blue>0</blue>
+              </color>
+             </brush>
+            </colorrole>
+            <colorrole role="PlaceholderText">
+             <brush brushstyle="SolidPattern">
+              <color alpha="128">
+               <red>255</red>
+               <green>255</green>
+               <blue>255</blue>
+              </color>
+             </brush>
+            </colorrole>
+           </disabled>
+          </palette>
+         </property>
          <property name="font">
           <font>
-           <family>Rockwell</family>
-           <pointsize>20</pointsize>
+           <family>Segoe UI</family>
+           <pointsize>-1</pointsize>
+           <fontweight>DemiBold</fontweight>
           </font>
          </property>
          <property name="text">
-          <string>CONTROL DE MEDICIÓN DE BOTELLAS</string>
+          <string>CONTROL MEDICIÓN DE BOTELLAS</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -284,61 +581,24 @@ QHeaderView::section {
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
-         <widget class="QGroupBox" name="groupBox_3">
+         <widget class="QGroupBox" name="groupBox_config">
           <property name="title">
-           <string>GroupBox</string>
+           <string/>
           </property>
-          <widget class="QLabel" name="label">
+          <widget class="QFrame" name="frame_config">
            <property name="geometry">
             <rect>
-             <x>10</x>
-             <y>80</y>
-             <width>111</width>
-             <height>21</height>
+             <x>0</x>
+             <y>10</y>
+             <width>221</width>
+             <height>31</height>
             </rect>
            </property>
            <property name="font">
             <font>
              <family>Rockwell</family>
-             <pointsize>11</pointsize>
              <bold>true</bold>
             </font>
-           </property>
-           <property name="text">
-            <string>Ángulo de giro: </string>
-           </property>
-          </widget>
-          <widget class="QLineEdit" name="lineEdit">
-           <property name="geometry">
-            <rect>
-             <x>140</x>
-             <y>80</y>
-             <width>91</width>
-             <height>26</height>
-            </rect>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="pushButton">
-           <property name="geometry">
-            <rect>
-             <x>240</x>
-             <y>75</y>
-             <width>131</width>
-             <height>37</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>MOVER MOTOR</string>
-           </property>
-          </widget>
-          <widget class="QFrame" name="frame">
-           <property name="geometry">
-            <rect>
-             <x>0</x>
-             <y>10</y>
-             <width>381</width>
-             <height>31</height>
-            </rect>
            </property>
            <property name="frameShape">
             <enum>QFrame::Shape::StyledPanel</enum>
@@ -346,31 +606,417 @@ QHeaderView::section {
            <property name="frameShadow">
             <enum>QFrame::Shadow::Raised</enum>
            </property>
-           <widget class="QLabel" name="label_2">
+           <widget class="Line" name="line_config">
             <property name="geometry">
              <rect>
-              <x>10</x>
-              <y>6</y>
-              <width>361</width>
-              <height>20</height>
+              <x>50</x>
+              <y>20</y>
+              <width>118</width>
+              <height>3</height>
              </rect>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_config">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>221</width>
+              <height>21</height>
+             </rect>
+            </property>
+            <property name="palette">
+             <palette>
+              <active>
+               <colorrole role="WindowText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Button">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="0">
+                  <red>0</red>
+                  <green>0</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Text">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="ButtonText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Base">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="0">
+                  <red>0</red>
+                  <green>0</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Window">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="0">
+                  <red>0</red>
+                  <green>0</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="PlaceholderText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="128">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+              </active>
+              <inactive>
+               <colorrole role="WindowText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Button">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="0">
+                  <red>0</red>
+                  <green>0</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Text">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="ButtonText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Base">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="0">
+                  <red>0</red>
+                  <green>0</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Window">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="0">
+                  <red>0</red>
+                  <green>0</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="PlaceholderText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="128">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+              </inactive>
+              <disabled>
+               <colorrole role="WindowText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Button">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="0">
+                  <red>0</red>
+                  <green>0</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Text">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="ButtonText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Base">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="0">
+                  <red>0</red>
+                  <green>0</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Window">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="0">
+                  <red>0</red>
+                  <green>0</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="PlaceholderText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="128">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+              </disabled>
+             </palette>
             </property>
             <property name="font">
              <font>
-              <family>Rockwell</family>
-              <bold>true</bold>
+              <family>Segoe UI</family>
+              <pointsize>-1</pointsize>
+              <fontweight></fontweight>
              </font>
             </property>
             <property name="text">
-             <string>Control de Giro</string>
+             <string>CONFIGURACIONES</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </widget>
-          <widget class="Line" name="line">
+          <widget class="QPushButton" name="btn_calibrar">
            <property name="geometry">
             <rect>
              <x>10</x>
+             <y>70</y>
+             <width>151</width>
+             <height>26</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>CALIBRAR CÁMARA</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="btn_medidas">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>120</y>
+             <width>151</width>
+             <height>26</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>TOMAR MEDIDAS</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="btn_secuencia">
+           <property name="geometry">
+            <rect>
+             <x>190</x>
+             <y>70</y>
+             <width>161</width>
+             <height>26</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>GENERAR SECUENCIA</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="btn_reiniciar">
+           <property name="geometry">
+            <rect>
+             <x>190</x>
+             <y>120</y>
+             <width>161</width>
+             <height>26</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>REINICIAR</string>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_giro">
+          <property name="font">
+           <font>
+            <family>Segoe UI</family>
+            <pointsize>-1</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="title">
+           <string/>
+          </property>
+          <widget class="QLineEdit" name="lineEdit_giro">
+           <property name="geometry">
+            <rect>
+             <x>110</x>
+             <y>60</y>
+             <width>81</width>
+             <height>21</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="btn_girar_motor">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>30</x>
              <y>100</y>
+             <width>151</width>
+             <height>37</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Segoe UI</family>
+             <pointsize>-1</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="cursor">
+            <cursorShape>ArrowCursor</cursorShape>
+           </property>
+           <property name="mouseTracking">
+            <bool>true</bool>
+           </property>
+           <property name="tabletTracking">
+            <bool>false</bool>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::LayoutDirection::LeftToRight</enum>
+           </property>
+           <property name="text">
+            <string>GIRAR MOTOR</string>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>10</width>
+             <height>10</height>
+            </size>
+           </property>
+           <property name="default">
+            <bool>false</bool>
+           </property>
+           <property name="flat">
+            <bool>false</bool>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_angulo">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>50</y>
+             <width>100</width>
+             <height>31</height>
+            </rect>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="autoFillBackground">
+            <bool>false</bool>
+           </property>
+           <property name="text">
+            <string>Ángulo de giro:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignBottom|Qt::AlignmentFlag::AlignHCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="image_giro">
+           <property name="geometry">
+            <rect>
+             <x>220</x>
+             <y>30</y>
+             <width>141</width>
+             <height>141</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap>../image construction/motor.jpeg</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+          </widget>
+          <widget class="Line" name="line_giro">
+           <property name="geometry">
+            <rect>
+             <x>50</x>
+             <y>90</y>
              <width>118</width>
              <height>3</height>
             </rect>
@@ -379,21 +1025,20 @@ QHeaderView::section {
             <enum>Qt::Orientation::Horizontal</enum>
            </property>
           </widget>
-         </widget>
-        </item>
-        <item>
-         <widget class="QGroupBox" name="groupBox">
-          <property name="title">
-           <string>GroupBox</string>
-          </property>
-          <widget class="QFrame" name="frame_2">
+          <widget class="QFrame" name="frame_giro">
            <property name="geometry">
             <rect>
              <x>0</x>
              <y>10</y>
-             <width>381</width>
+             <width>181</width>
              <height>31</height>
             </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Rockwell</family>
+             <bold>true</bold>
+            </font>
            </property>
            <property name="frameShape">
             <enum>QFrame::Shape::StyledPanel</enum>
@@ -401,23 +1046,239 @@ QHeaderView::section {
            <property name="frameShadow">
             <enum>QFrame::Shadow::Raised</enum>
            </property>
-           <widget class="QLabel" name="label_3">
+           <widget class="Line" name="line_giro_2">
             <property name="geometry">
              <rect>
-              <x>10</x>
-              <y>10</y>
-              <width>361</width>
-              <height>20</height>
+              <x>30</x>
+              <y>20</y>
+              <width>118</width>
+              <height>3</height>
              </rect>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_giro">
+            <property name="geometry">
+             <rect>
+              <x>-20</x>
+              <y>0</y>
+              <width>221</width>
+              <height>21</height>
+             </rect>
+            </property>
+            <property name="palette">
+             <palette>
+              <active>
+               <colorrole role="WindowText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Button">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="0">
+                  <red>0</red>
+                  <green>0</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Text">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="ButtonText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Base">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="0">
+                  <red>0</red>
+                  <green>0</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Window">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="0">
+                  <red>0</red>
+                  <green>0</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="PlaceholderText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="128">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+              </active>
+              <inactive>
+               <colorrole role="WindowText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Button">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="0">
+                  <red>0</red>
+                  <green>0</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Text">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="ButtonText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Base">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="0">
+                  <red>0</red>
+                  <green>0</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Window">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="0">
+                  <red>0</red>
+                  <green>0</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="PlaceholderText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="128">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+              </inactive>
+              <disabled>
+               <colorrole role="WindowText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Button">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="0">
+                  <red>0</red>
+                  <green>0</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Text">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="ButtonText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="255">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Base">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="0">
+                  <red>0</red>
+                  <green>0</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="Window">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="0">
+                  <red>0</red>
+                  <green>0</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="PlaceholderText">
+                <brush brushstyle="SolidPattern">
+                 <color alpha="128">
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
+                 </color>
+                </brush>
+               </colorrole>
+              </disabled>
+             </palette>
             </property>
             <property name="font">
              <font>
-              <family>Rockwell</family>
-              <bold>true</bold>
+              <family>Segoe UI</family>
+              <pointsize>-1</pointsize>
+              <fontweight></fontweight>
              </font>
             </property>
             <property name="text">
-             <string>Captura Fotográfia</string>
+             <string>CONTROL MOTOR</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </widget>
@@ -425,66 +1286,311 @@ QHeaderView::section {
         </item>
        </layout>
       </item>
-      <item>
-       <widget class="QGroupBox" name="groupBox_2">
-        <property name="title">
-         <string>GroupBox</string>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_2">
-         <item row="0" column="1">
-          <widget class="QFrame" name="frame_3">
-           <property name="frameShape">
-            <enum>QFrame::Shape::StyledPanel</enum>
-           </property>
-           <property name="frameShadow">
-            <enum>QFrame::Shadow::Raised</enum>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="1">
-          <widget class="QPushButton" name="pushButton_2">
-           <property name="text">
-            <string>DETENER</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="1">
-          <widget class="QPushButton" name="pushButton_3">
-           <property name="text">
-            <string>INICIAR SECUENCIA</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QPushButton" name="pushButton_4">
-           <property name="text">
-            <string>CONFIGURACIóN</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <widget class="QTableWidget" name="tableWidget">
-           <column>
-            <property name="text">
-             <string>#</string>
-            </property>
-           </column>
-           <column>
-            <property name="text">
-             <string>Ángulo</string>
-            </property>
-           </column>
-           <column>
-            <property name="text">
-             <string>Acción</string>
-            </property>
-           </column>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-      </item>
      </layout>
+    </item>
+    <item row="1" column="0">
+     <widget class="QGroupBox" name="groupBox_fotografia">
+      <property name="styleSheet">
+       <string notr="true">/* 1. FONDO GENERAL DE LA APLICACIÓN */
+QMainWindow {
+    background-color: #1b2029; /* Gris oscuro azulado industrial */
+}
+
+/* 2. CABECERA (AZUL INDUSTRIAL CON LÍNEA NEÓN) */
+QFrame#frame_title { 
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, 
+        stop:0 #1a3a5e, 
+        stop:0.4 #0d1e33, 
+        stop:1 #050c14);
+    border-bottom: 3px solid #00d4ff; /* La línea azul viva de la imagen */
+}
+
+/* TÍTULO DE LA CABECERA */
+QLabel#label_titulo_principal {
+    color: #ffffff;
+    font-family: &quot;Segoe UI&quot;, &quot;Arial Black&quot;;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: transparent;
+}
+
+/* 3. PANELES Y CUADROS (GROUPBOX) */
+QGroupBox {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, 
+        stop:0 #2d3644, 
+        stop:1 #1e242d);
+    border: 1px solid #3a4454;
+    border-radius: 4px;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 13px;
+    color: #00d4ff; /* Título del GroupBox en azul neón */
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 5px;
+}
+
+/* 4. LABELS E INDICADORES */
+QLabel {
+    color: #ffffff;
+    font-size: 13px;
+    background: transparent;
+}
+
+/* 5. CAJAS DE ENTRADA (ÁNGULO) */
+QLineEdit {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #050c14;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 2px;
+}
+
+/* 6. BOTONES GENERALES */
+QPushButton {
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #4e5968, stop:1 #353d49);
+    color: white;
+    border: 1px solid #1a1e24;
+    border-radius: 4px;
+    padding: 6px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #5a6675;
+}
+
+/* BOTÓN MOVER MOTOR Y BOTÓN CAPTURAR (AZUL METÁLICO) */
+QPushButton#btn_girar_motor, QPushButton#btn_capturar,QPushButton#btn_calibrar {
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #2980b9, stop:1 #1c5982);
+    border: 1px solid #154360;
+}
+
+
+
+/* BOTÓN INICIAR (VERDE) */
+QPushButton#btn_iniciar {
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #5c9e31, stop:1 #3a631f);
+    border: 1px solid #2d4d18;
+}
+
+/* BOTÓN DETENER (ROJO) */
+QPushButton#btn_detener {
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #cc3333, stop:1 #802020);
+    border: 1px solid #5a1010;
+}
+
+/* 7. TABLA DE DATOS */
+QTableWidget {
+    background-color: #242b35;
+    color: white;
+    gridline-color: #3a4454;
+    border: 1px solid #3a4454;
+    font-size: 13px;
+    alternate-background-color: #1e242d;
+}
+
+QHeaderView::section {
+    background-color: #0d1e33;
+    color: #00d4ff;
+    padding: 4px;
+    border: 1px solid #3a4454;
+    font-weight: bold;
+}
+
+/* 8. VISORES DE IMAGEN (LABELS DE CÁMARA) */
+QLabel#label_visor, QLabel#label_foto {
+    background-color: #000000;
+    border: 2px solid #3a4454;
+    border-radius: 2px;
+}
+
+/* UNIFICACIÓN DE ESTILO PARA SUB-ENCABEZADOS DE FOTOGRAFÍA */
+QLabel#label_capture, 
+QLabel#label_display {
+    color: #ffffff;
+    font-family: &quot;Segoe UI Semibold&quot;, &quot;Segoe UI&quot;, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: transparent;
+    padding-bottom: 2px;
+}</string>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="3" column="1">
+        <widget class="QPushButton" name="btn_capture">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="font">
+          <font>
+           <family>Segoe UI</family>
+           <pointsize>-1</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>ArrowCursor</cursorShape>
+         </property>
+         <property name="mouseTracking">
+          <bool>true</bool>
+         </property>
+         <property name="tabletTracking">
+          <bool>false</bool>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LayoutDirection::LeftToRight</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">/* ESTADO NORMAL */
+QPushButton {
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #2980b9, stop:1 #1c5982);
+    border: 1px solid #154360;
+    color: white;
+    border-radius: 6px;
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 6px;
+}
+
+/* ESTADO AL PASAR EL MOUSE (HOVER) */
+QPushButton:hover {
+    /* Un azul más brillante y un borde cian neón */
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #3498db, stop:1 #2980b9);
+    border: 1px solid #00d4ff;
+}
+
+/* ESTADO AL HACER CLIC (PRESSED) */
+QPushButton:pressed {
+    /* Color más oscuro y efecto de hundimiento */
+    background-color: #1a3a5e;
+    padding-top: 10px;
+    padding-left: 2px;
+}</string>
+         </property>
+         <property name="text">
+          <string>CAPTURAR</string>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>10</width>
+           <height>10</height>
+          </size>
+         </property>
+         <property name="default">
+          <bool>false</bool>
+         </property>
+         <property name="flat">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_display">
+         <property name="font">
+          <font>
+           <family>Segoe UI Semibold</family>
+           <pointsize>-1</pointsize>
+           <bold>true</bold>
+           <kerning>true</kerning>
+          </font>
+         </property>
+         <property name="text">
+          <string>VISUALIZACIÓN FOTOGRAFIA CAPTURADA</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="Line" name="line_capture">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLabel" name="label_capture">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>500</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Segoe UI Semibold</family>
+           <pointsize>-1</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Toma de fotografia</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLabel" name="image_capture_2">
+         <property name="maximumSize">
+          <size>
+           <width>200</width>
+           <height>200</height>
+          </size>
+         </property>
+         <property name="tabletTracking">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap>../image construction/camara.jpeg</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="Line" name="line_display">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="image_capture">
+         <property name="text">
+          <string>IMAGEN TOMADA</string>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -493,7 +1599,7 @@ QHeaderView::section {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>791</width>
+     <width>770</width>
      <height>33</height>
     </rect>
    </property>
