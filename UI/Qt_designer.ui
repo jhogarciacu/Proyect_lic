@@ -285,7 +285,7 @@ QGroupBox {
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <layout class="QVBoxLayout" name="verticalLayout" stretch="1,2">
+     <layout class="QVBoxLayout" name="verticalLayout_title" stretch="1,2">
       <item>
        <widget class="QFrame" name="frame_title">
         <property name="maximumSize">
@@ -313,7 +313,7 @@ QGroupBox {
           <string/>
          </property>
          <property name="pixmap">
-          <pixmap>../image construction/Borde_2.jpeg</pixmap>
+          <pixmap>../image construction/icono_giro.jpeg</pixmap>
          </property>
          <property name="scaledContents">
           <bool>true</bool>
@@ -332,7 +332,7 @@ QGroupBox {
           <string/>
          </property>
          <property name="pixmap">
-          <pixmap>../image construction/bordes_1.jpeg</pixmap>
+          <pixmap>../image construction/icono_camara.jpeg</pixmap>
          </property>
          <property name="scaledContents">
           <bool>true</bool>
@@ -579,7 +579,7 @@ QGroupBox {
        </widget>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <layout class="QHBoxLayout" name="horizontalLayout_box">
         <item>
          <widget class="QGroupBox" name="groupBox_config">
           <property name="title">
@@ -846,7 +846,7 @@ QGroupBox {
            <property name="geometry">
             <rect>
              <x>10</x>
-             <y>70</y>
+             <y>50</y>
              <width>151</width>
              <height>26</height>
             </rect>
@@ -859,7 +859,7 @@ QGroupBox {
            <property name="geometry">
             <rect>
              <x>10</x>
-             <y>120</y>
+             <y>100</y>
              <width>151</width>
              <height>26</height>
             </rect>
@@ -872,10 +872,39 @@ QGroupBox {
            <property name="geometry">
             <rect>
              <x>190</x>
-             <y>70</y>
+             <y>50</y>
              <width>161</width>
              <height>26</height>
             </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">/* ESTADO NORMAL */
+QPushButton {
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #2980b9, stop:1 #1c5982);
+    border: 1px solid #154360;
+    color: white;
+    border-radius: 6px;
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 6px;
+}
+
+/* ESTADO AL PASAR EL MOUSE (HOVER) */
+QPushButton:hover {
+    /* Un azul más brillante y un borde cian neón */
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #3498db, stop:1 #2980b9);
+    border: 1px solid #00d4ff;
+}
+
+/* ESTADO AL HACER CLIC (PRESSED) */
+QPushButton:pressed {
+    /* Color más oscuro y efecto de hundimiento */
+    background-color: #1a3a5e;
+    padding-top: 10px;
+    padding-left: 2px;
+}</string>
            </property>
            <property name="text">
             <string>GENERAR SECUENCIA</string>
@@ -885,7 +914,7 @@ QGroupBox {
            <property name="geometry">
             <rect>
              <x>190</x>
-             <y>120</y>
+             <y>100</y>
              <width>161</width>
              <height>26</height>
             </rect>
@@ -912,7 +941,7 @@ QGroupBox {
            <property name="geometry">
             <rect>
              <x>110</x>
-             <y>60</y>
+             <y>50</y>
              <width>81</width>
              <height>21</height>
             </rect>
@@ -924,10 +953,10 @@ QGroupBox {
            </property>
            <property name="geometry">
             <rect>
-             <x>30</x>
+             <x>20</x>
              <y>100</y>
              <width>151</width>
-             <height>37</height>
+             <height>31</height>
             </rect>
            </property>
            <property name="font">
@@ -969,7 +998,7 @@ QGroupBox {
            <property name="geometry">
             <rect>
              <x>10</x>
-             <y>50</y>
+             <y>40</y>
              <width>100</width>
              <height>31</height>
             </rect>
@@ -994,7 +1023,7 @@ QGroupBox {
            <property name="geometry">
             <rect>
              <x>220</x>
-             <y>30</y>
+             <y>10</y>
              <width>141</width>
              <height>141</height>
             </rect>
@@ -1015,8 +1044,8 @@ QGroupBox {
           <widget class="Line" name="line_giro">
            <property name="geometry">
             <rect>
-             <x>50</x>
-             <y>90</y>
+             <x>40</x>
+             <y>80</y>
              <width>118</width>
              <height>3</height>
             </rect>
@@ -1290,145 +1319,109 @@ QGroupBox {
     </item>
     <item row="1" column="0">
      <widget class="QGroupBox" name="groupBox_fotografia">
-      <property name="styleSheet">
-       <string notr="true">/* 1. FONDO GENERAL DE LA APLICACIÓN */
-QMainWindow {
-    background-color: #1b2029; /* Gris oscuro azulado industrial */
-}
-
-/* 2. CABECERA (AZUL INDUSTRIAL CON LÍNEA NEÓN) */
-QFrame#frame_title { 
-    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, 
-        stop:0 #1a3a5e, 
-        stop:0.4 #0d1e33, 
-        stop:1 #050c14);
-    border-bottom: 3px solid #00d4ff; /* La línea azul viva de la imagen */
-}
-
-/* TÍTULO DE LA CABECERA */
-QLabel#label_titulo_principal {
-    color: #ffffff;
-    font-family: &quot;Segoe UI&quot;, &quot;Arial Black&quot;;
-    font-size: 24px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    background: transparent;
-}
-
-/* 3. PANELES Y CUADROS (GROUPBOX) */
-QGroupBox {
-    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, 
-        stop:0 #2d3644, 
-        stop:1 #1e242d);
-    border: 1px solid #3a4454;
-    border-radius: 4px;
-    margin-top: 20px;
-    font-weight: bold;
-    font-size: 13px;
-    color: #00d4ff; /* Título del GroupBox en azul neón */
-}
-
-QGroupBox::title {
-    subcontrol-origin: margin;
-    left: 10px;
-    padding: 0 5px;
-}
-
-/* 4. LABELS E INDICADORES */
-QLabel {
-    color: #ffffff;
-    font-size: 13px;
-    background: transparent;
-}
-
-/* 5. CAJAS DE ENTRADA (ÁNGULO) */
-QLineEdit {
-    background-color: #ffffff;
-    color: #000000;
-    border: 1px solid #050c14;
-    border-radius: 2px;
-    font-weight: bold;
-    font-size: 14px;
-    padding: 2px;
-}
-
-/* 6. BOTONES GENERALES */
-QPushButton {
-    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #4e5968, stop:1 #353d49);
-    color: white;
-    border: 1px solid #1a1e24;
-    border-radius: 4px;
-    padding: 6px;
-    font-weight: bold;
-}
-
-QPushButton:hover {
-    background-color: #5a6675;
-}
-
-/* BOTÓN MOVER MOTOR Y BOTÓN CAPTURAR (AZUL METÁLICO) */
-QPushButton#btn_girar_motor, QPushButton#btn_capturar,QPushButton#btn_calibrar {
-    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #2980b9, stop:1 #1c5982);
-    border: 1px solid #154360;
-}
-
-
-
-/* BOTÓN INICIAR (VERDE) */
-QPushButton#btn_iniciar {
-    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #5c9e31, stop:1 #3a631f);
-    border: 1px solid #2d4d18;
-}
-
-/* BOTÓN DETENER (ROJO) */
-QPushButton#btn_detener {
-    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #cc3333, stop:1 #802020);
-    border: 1px solid #5a1010;
-}
-
-/* 7. TABLA DE DATOS */
-QTableWidget {
-    background-color: #242b35;
-    color: white;
-    gridline-color: #3a4454;
-    border: 1px solid #3a4454;
-    font-size: 13px;
-    alternate-background-color: #1e242d;
-}
-
-QHeaderView::section {
-    background-color: #0d1e33;
-    color: #00d4ff;
-    padding: 4px;
-    border: 1px solid #3a4454;
-    font-weight: bold;
-}
-
-/* 8. VISORES DE IMAGEN (LABELS DE CÁMARA) */
-QLabel#label_visor, QLabel#label_foto {
-    background-color: #000000;
-    border: 2px solid #3a4454;
-    border-radius: 2px;
-}
-
-/* UNIFICACIÓN DE ESTILO PARA SUB-ENCABEZADOS DE FOTOGRAFÍA */
-QLabel#label_capture, 
-QLabel#label_display {
-    color: #ffffff;
-    font-family: &quot;Segoe UI Semibold&quot;, &quot;Segoe UI&quot;, sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    background: transparent;
-    padding-bottom: 2px;
-}</string>
-      </property>
       <property name="title">
        <string/>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
+       <property name="leftMargin">
+        <number>2</number>
+       </property>
+       <property name="horizontalSpacing">
+        <number>2</number>
+       </property>
+       <property name="verticalSpacing">
+        <number>16</number>
+       </property>
+       <item row="2" column="0">
+        <widget class="QLabel" name="image_capture">
+         <property name="text">
+          <string>IMAGEN TOMADA</string>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLabel" name="label_capture">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>500</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Segoe UI</family>
+           <pointsize>-1</pointsize>
+           <fontweight></fontweight>
+          </font>
+         </property>
+         <property name="text">
+          <string>Toma de fotografia</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLabel" name="image_capture_2">
+         <property name="maximumSize">
+          <size>
+           <width>230</width>
+           <height>240</height>
+          </size>
+         </property>
+         <property name="tabletTracking">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap>../image construction/camara.jpeg</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_display">
+         <property name="font">
+          <font>
+           <family>Segoe UI</family>
+           <pointsize>-1</pointsize>
+           <kerning>true</kerning>
+           <fontweight></fontweight>
+          </font>
+         </property>
+         <property name="text">
+          <string>VISUALIZACIÓN FOTOGRAFIA CAPTURADA</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="Line" name="line_capture">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="Line" name="line_display">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
        <item row="3" column="1">
         <widget class="QPushButton" name="btn_capture">
          <property name="enabled">
@@ -1496,96 +1489,6 @@ QPushButton:pressed {
          </property>
          <property name="flat">
           <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="label_display">
-         <property name="font">
-          <font>
-           <family>Segoe UI Semibold</family>
-           <pointsize>-1</pointsize>
-           <bold>true</bold>
-           <kerning>true</kerning>
-          </font>
-         </property>
-         <property name="text">
-          <string>VISUALIZACIÓN FOTOGRAFIA CAPTURADA</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="Line" name="line_capture">
-         <property name="orientation">
-          <enum>Qt::Orientation::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QLabel" name="label_capture">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>500</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>Segoe UI Semibold</family>
-           <pointsize>-1</pointsize>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Toma de fotografia</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QLabel" name="image_capture_2">
-         <property name="maximumSize">
-          <size>
-           <width>200</width>
-           <height>200</height>
-          </size>
-         </property>
-         <property name="tabletTracking">
-          <bool>false</bool>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="pixmap">
-          <pixmap>../image construction/camara.jpeg</pixmap>
-         </property>
-         <property name="scaledContents">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="Line" name="line_display">
-         <property name="orientation">
-          <enum>Qt::Orientation::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="image_capture">
-         <property name="text">
-          <string>IMAGEN TOMADA</string>
-         </property>
-         <property name="scaledContents">
-          <bool>true</bool>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignCenter</set>
          </property>
         </widget>
        </item>
