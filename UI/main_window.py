@@ -3,6 +3,7 @@ import os
 from PySide6.QtWidgets import QApplication, QMainWindow
 from PySide6.QtUiTools import QUiLoader
 from PySide6.QtCore import QFile, Qt
+from Control.controlador_hardware import ControladorHardware
 
 class InspectorApp(QMainWindow):
     def __init__(self):
@@ -13,6 +14,7 @@ class InspectorApp(QMainWindow):
         ui_path = os.path.join(os.path.dirname(__file__), "Qt_designer.ui")
         ui_file = QFile(ui_path)
         
+        
         if not ui_file.open(QFile.ReadOnly):
             print(f"Error: No se encontró el archivo UI en {ui_path}")
             return
@@ -21,27 +23,33 @@ class InspectorApp(QMainWindow):
         self.ui = loader.load(ui_file)
         ui_file.close()
 
-        # HACER QUE LA INTERFAZ SE VEA IGUAL:
-        # 1. Establecemos el widget cargado como el centro
+        # Establecemos el widget cargado como el centro
         self.setCentralWidget(self.ui)
         
-        # 2. Copiamos el tamaño exacto que definiste en Designer
+        # Copiamos el tamaño exacto de Designer
         self.resize(self.ui.size())
         
-        # 3. Copiamos el título
+        # Copiamos el título
         self.setWindowTitle(self.ui.windowTitle())
 
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    
-    # Cargar el CSS con UTF-8
-    css_path = os.path.join(os.path.dirname(__file__), "estilos.css")
-    try:
-        with open(css_path, "r", encoding="utf-8") as f:
-            app.setStyleSheet(f.read())
-    except Exception as e:
-        print(f"Error CSS: {e}")
-        
-    window = InspectorApp()
-    window.show()
-    sys.exit(app.exec())
+        #controlador
+        self.controlador = ControladorHardware()
+        self.controlador.conectar()
+
+
+        #conexion de boton con acción
+        self.ui.btn_capture.clicked.connect(self.on_capturar)
+
+    def on_capturar(self):
+        print("🟢 Botón capturar presionado")
+
+        ruta = self.controlador.capturar_foto()
+
+        if ruta:
+            print(f"📸 Imagen guardada en: {ruta}")
+        else:
+            print("❌ Falló la captura")
+
+    def closeEvent(self, event):
+        self.controlador.cerrar()
+        event.accept()
