@@ -4,6 +4,7 @@ from PySide6.QtWidgets import QApplication, QMainWindow
 from PySide6.QtUiTools import QUiLoader
 from PySide6.QtCore import QFile, Qt
 from Control.controlador_hardware import ControladorHardware
+from PySide6.QtWidgets import QApplication, QMainWindow, QComboBox
 
 class InspectorApp(QMainWindow):
     def __init__(self):
@@ -31,6 +32,7 @@ class InspectorApp(QMainWindow):
         
         # Copiamos el título
         self.setWindowTitle(self.ui.windowTitle())
+        self.comboBox_giro = self.ui.findChild(QComboBox, "comboBox_giro")
 
         #controlador
         self.controlador = ControladorHardware()
@@ -39,6 +41,7 @@ class InspectorApp(QMainWindow):
 
         #conexion de boton con acción
         self.ui.btn_capture.clicked.connect(self.on_capturar)
+        self.ui.btn_girar_motor.clicked.connect(self.on_motor)
 
     def on_capturar(self):
         print("🟢 Botón capturar presionado")
@@ -49,6 +52,18 @@ class InspectorApp(QMainWindow):
             print(f"📸 Imagen guardada en: {ruta}")
         else:
             print("❌ Falló la captura")
+
+    def on_motor(self):
+        print("🟢 Botón girar presionado")
+
+        texto = self.ui.comboBox_giro.currentText()
+        angulo = int(texto.split()[1].replace("°",""))
+        ruta = self.controlador.girar_n_grados(angulo)
+
+        if ruta:
+            print(f"📸giro correcto")
+        else:
+            print("❌ Falló el giro")
 
     def closeEvent(self, event):
         self.controlador.cerrar()

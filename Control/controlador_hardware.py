@@ -8,7 +8,7 @@ import requests
 
 
 class ControladorHardware:
-    def __init__(self, puerto="/dev/ttyACM0", pasos=8333):
+    def __init__(self, puerto="COM8", pasos=8333):
         self.puerto = puerto
         self.pasos = pasos
         self.ser = None
@@ -23,10 +23,6 @@ class ControladorHardware:
         self.carpeta_imagenes.mkdir(exist_ok=True)
 
     def conectar(self):
-        if self.sistema_operativo == "Windows":
-            print("⚠️ MODO SIMULACIÓN: Detectado Windows.")
-            return True
-
         try:
             self.ser = serial.Serial(
                 port=self.puerto,
@@ -34,8 +30,11 @@ class ControladorHardware:
                 timeout=1
             )
 
+            time.sleep(2)  # Esperar inicialización
+
             comando_init = "ECHO1\rERRLVL0\rMA0\rDRES25000\rDRIVE1\rPSET0\r"
             self.ser.write(comando_init.encode())
+
             print(f"✅ Motor conectado en {self.puerto}")
             return True
 
@@ -43,14 +42,25 @@ class ControladorHardware:
             print(f"❌ Error al conectar motor: {e}")
             return False
 
-    def girar_45_grados(self):
-        comando = f"A10\rV2\rD{self.pasos}\rGO1\r"
+    def girar_n_grados(self,angulo):
 
-        if self.ser and self.ser.is_open:
-            self.ser.write(comando.encode())
-            time.sleep(1.2)
-        else:
-            print("⚠️ SIMULACIÓN: giro motor")
+        pasos = int((angulo / 360) * self.pasos)
+
+        comando = f"A10\rV2\rD{pasos}\rGO1\r"
+
+        try:
+            if self.ser and self.ser.is_open:
+                self.ser.write(comando.encode())
+                time.sleep(0.5)
+                print("🔄 Motor giró 45°")
+                return True
+            else:
+                print("⚠️ SIMULACIÓN: giro motor")
+                return True  # simulación exitosa
+
+        except Exception as e:
+            print(f"❌ Error en giro: {e}")
+            return False
 
     
 
