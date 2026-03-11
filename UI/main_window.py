@@ -4,7 +4,11 @@ from PySide6.QtWidgets import QApplication, QMainWindow
 from PySide6.QtUiTools import QUiLoader
 from PySide6.QtCore import QFile, Qt
 from Control.controlador_hardware import ControladorHardware
-from PySide6.QtWidgets import QApplication, QMainWindow, QComboBox
+from PySide6.QtWidgets import QApplication, QMainWindow, QComboBox,QLabel
+from PySide6.QtCore import QTimer
+from PySide6.QtGui import QImage, QPixmap
+import cv2
+
 
 class InspectorApp(QMainWindow):
     def __init__(self):
@@ -33,10 +37,19 @@ class InspectorApp(QMainWindow):
         # Copiamos el título
         self.setWindowTitle(self.ui.windowTitle())
         self.comboBox_giro = self.ui.findChild(QComboBox, "comboBox_giro")
+        self.image_capture = self.ui.findChild(QLabel, "image_capture")
 
         #controlador
         self.controlador = ControladorHardware()
         self.controlador.conectar()
+
+        # iniciar live view automáticamente
+        self.controlador.iniciar_liveview()
+
+        # timer para actualizar imagen
+        self.timer_liveview = QTimer()
+        self.timer_liveview.timeout.connect(self.actualizar_liveview)
+        self.timer_liveview.start(30)
 
 
         #conexion de boton con acción
@@ -52,6 +65,26 @@ class InspectorApp(QMainWindow):
             print(f"📸 Imagen guardada en: {ruta}")
         else:
             print("❌ Falló la captura")
+
+    def actualizar_liveview(self):
+
+        frame = self.controlador.obtener_frame_liveview()
+
+        if frame is None:
+            print("sin frame")
+            return
+
+        # convertir BGR → RGB
+        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+
+        h, w, ch = frame.shape
+        bytes_per_line = ch * w
+
+        qt_image = QImage(frame.data, w, h, bytes_per_line, QImage.Format_RGB888)
+
+        pixmap = QPixmap.fromImage(qt_image)
+
+        self.image_capture.setPixmap(pixmap)
 
     def on_motor(self):
         print("🟢 Botón girar presionado")

@@ -149,9 +149,6 @@ QLabel#image_capture {
     border: 1px solid #3a4454;
     border-radius: 8px;
     background-color: #000000;
-    /* Ajustado a .jpeg según tu mensaje */
-    qproperty-pixmap: url("image construction/botella_ron.jpeg");
-    qproperty-scaledContents: true;
 }
 
 /* 7. COMBOBOX GIRO */

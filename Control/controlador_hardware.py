@@ -5,16 +5,20 @@ from pathlib import Path
 import requests
 import os
 import requests
+from serial.tools import list_ports
+import cv2
+import numpy as np
+import requests
 
 
 class ControladorHardware:
-    def __init__(self, puerto="COM8", pasos=8333):
+    def __init__(self, puerto=None, pasos=66664):
         self.puerto = puerto
         self.pasos = pasos
         self.ser = None
         self.sistema_operativo = platform.system()
 
-        self.camera_ip = "172.20.10.2:8080"
+        self.camera_ip = "172.18.226.42:8080"
         self.base_url = f"http://{self.camera_ip}/ccapi"
 
         # Carpeta raíz del proyecto
@@ -22,7 +26,29 @@ class ControladorHardware:
         self.carpeta_imagenes = base_dir / "image_capture"
         self.carpeta_imagenes.mkdir(exist_ok=True)
 
+
+
+    def detectar_puerto(self):
+
+        puertos = list_ports.comports()
+
+        for puerto in puertos:
+            print("Detectado:", puerto.device, puerto.description)
+
+            if "USB" in puerto.description:
+                return puerto.device
+
+        return None
+
     def conectar(self):
+
+        if self.puerto is None:
+            self.puerto = self.detectar_puerto()
+
+        if self.puerto is None:
+            print("❌ No se encontró el motor")
+            return False
+
         try:
             self.ser = serial.Serial(
                 port=self.puerto,
@@ -30,16 +56,14 @@ class ControladorHardware:
                 timeout=1
             )
 
-            time.sleep(2)  # Esperar inicialización
-
-            comando_init = "ECHO1\rERRLVL0\rMA0\rDRES25000\rDRIVE1\rPSET0\r"
-            self.ser.write(comando_init.encode())
+            time.sleep(2)
 
             print(f"✅ Motor conectado en {self.puerto}")
+
             return True
 
         except Exception as e:
-            print(f"❌ Error al conectar motor: {e}")
+            print(f"❌ Error al abrir puerto: {e}")
             return False
 
     def girar_n_grados(self,angulo):
@@ -52,7 +76,7 @@ class ControladorHardware:
             if self.ser and self.ser.is_open:
                 self.ser.write(comando.encode())
                 time.sleep(0.5)
-                print("🔄 Motor giró 45°")
+                print("🔄 Motor giró")
                 return True
             else:
                 print("⚠️ SIMULACIÓN: giro motor")
@@ -79,9 +103,13 @@ class ControladorHardware:
                 return None
 
             # Obtener lista de contenidos
-            url_contents = f"{self.base_url}/ver100/contents"
+            url_contents = f"{self.base_url}/ver100/contents/sd/100CANON/IMG_0003.JPG"
 
             r = requests.get(url_contents)
+
+            print("STATUS CONTENTS:", r.status_code)
+            print("BODY:", r.text)
+
             data = r.json()
 
             # Obtener último archivo
@@ -92,23 +120,77 @@ class ControladorHardware:
             # Descargar imagen
             r = requests.get(last_file)
 
-            # Crear carpeta si no existe
-            save_path = r"C:\Proyects\Proyect_lic\image capture"
-            os.makedirs(save_path, exist_ok=True)
-
-            filename = os.path.join(save_path, last_file.split("/")[-1])
-
-            with open(filename, "wb") as f:
-                f.write(r.content)
-
-            print("📸 Imagen guardada en:", filename)
-
-            return filename
-
         except Exception as e:
             print("ERROR:", e)
             return None
+        
+    def iniciar_liveview(self):
 
+        try:
+
+            # activar liveview
+            url_start = f"{self.base_url}/ver100/shooting/liveview/rtp"
+
+            payload = {
+                "rtpport": 50000
+            }
+
+            r = requests.post(url_start, json=payload)
+
+            print("LIVEVIEW START:", r.status_code)
+
+            if r.status_code != 200:
+                print("❌ No se pudo activar LiveView")
+                return False
+
+            # abrir stream
+            url_stream = f"{self.base_url}/ver100/shooting/liveview/stream"
+
+            self.stream = requests.get(
+                url_stream,
+                stream=True,
+                timeout=5
+            )
+
+            self.bytes_data = b''
+
+            print("📡 LiveView iniciado")
+
+            return True
+
+        except Exception as e:
+
+            print("❌ Error iniciando LiveView:", e)
+
+            return False
+        
+
+    def obtener_frame_liveview(self):
+
+        try:
+
+            for chunk in self.stream.iter_content(chunk_size=1024):
+
+                self.bytes_data += chunk
+
+                a = self.bytes_data.find(b'\xff\xd8')
+                b = self.bytes_data.find(b'\xff\xd9')
+
+                if a != -1 and b != -1:
+
+                    jpg = self.bytes_data[a:b+2]
+                    self.bytes_data = self.bytes_data[b+2:]
+
+                    img = cv2.imdecode(
+                        np.frombuffer(jpg, dtype=np.uint8),
+                        cv2.IMREAD_COLOR
+                    )
+
+                    return img
+
+        except:
+            return None
+    
     def cerrar(self):
         if self.ser and self.ser.is_open:
             self.ser.close()
